@@ -3,94 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <title>Utsav Pandey | AI & ML Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="logo">Utsav</div>
+  <!-- Header -->
+  <header id="header">
+    <div class="logo">Utsav<span>.</span></div>
+    <button class="nav-toggle" id="navToggle">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
+      <ul id="navMenu">
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#resume">Resume</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a class="close-nav" id="closeNav"><i class="fas fa-times"></i></a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="home">
-    <div class="about">
-      <div class="about-text">
-        <h1>Hi, I'm <span class="highlight">Utsav Pandey</span></h1>
-        <p>A passionate AI & ML enthusiast who blends art, philosophy, and science into beautiful ideas and tech projects. I design, build, and think with intention.</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-tagline">AI & ML Enthusiast</span>
+        <h1>Blending Art, Philosophy & Science Through Technology</h1>
+        <p>I'm Utsav Pandey, a passionate developer who creates beautiful solutions at the intersection of technology and human experience. I design, build, and think with intention.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-code"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
       </div>
-      <div class="about-img">
-        <img src="utsav.jpg" alt="Utsav Pandey" />
+      <div class="hero-image">
+        <div class="profile-container floating">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Utsav Pandey" class="profile-img">
+          <div class="profile-deco"></div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Resume Section -->
   <section id="resume">
-    <h2>Resume</h2>
-    <div class="resume-wrapper">
-      <img src="Resume.jpg" alt="Resume" class="resume-image">
-      <a href="Resume.pdf" download class="download-btn">Download PDF</a>
+    <div class="section-header">
+      <h2>My Resume</h2>
+      <p>Explore my professional journey and expertise</p>
+    </div>
+    <div class="resume-container">
+      <div class="resume-preview">
+        <img src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Resume Preview">
+      </div>
+      <a href="#" class="btn btn-primary">
+        <i class="fas fa-download"></i> Download PDF
+      </a>
     </div>
   </section>
 
+  <!-- Blog Section -->
   <section id="blog">
-    <h2>Blog</h2>
-    <div class="blog-grid">
-      <a href="https://medium.com/@utsavp3010/can-machines-be-truly-conscious-b082931765bf" class="blog-card">
-        <img src="1.jpg" alt="Blog 1 Cover Image" />
-        <div class="blog-info">
+    <div class="section-header">
+      <h2>My Blog</h2>
+      <p>Thoughts on technology, philosophy, and creativity</p>
+    </div>
+    <div class="card-grid">
+      <a href="https://medium.com/@utsavp3010/can-machines-be-truly-conscious-b082931765bf" class="card">
+        <img src="https://images.unsplash.com/photo-1677442135722-5f3e7e9b3b0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI Consciousness" class="card-img">
+        <div class="card-content">
           <h3>Can Machines Be Truly Conscious?</h3>
-          <p>A Philosophical Inquiry into AI and Consciousness</p>
+          <p>A philosophical inquiry into the nature of artificial intelligence and the essence of consciousness. Exploring the boundaries between human cognition and machine learning.</p>
+          <div class="card-tags">
+            <span class="card-tag">Philosophy</span>
+            <span class="card-tag">AI Ethics</span>
+            <span class="card-tag">Technology</span>
+          </div>
         </div>
       </a>
-      <a href="#" class="blog-card">
-        <img src="blog2.jpg" alt="Blog 2 Cover Image" />
-        <div class="blog-info">
+      
+      <a href="#" class="card">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Learning Art" class="card-img">
+        <div class="card-content">
           <h3>The Art of Learning</h3>
-          <p>Combining stoicism, art, and data science to master learning habits.</p>
+          <p>Combining stoic principles, artistic expression, and data science to master the craft of continuous learning and personal development in the digital age.</p>
+          <div class="card-tags">
+            <span class="card-tag">Learning</span>
+            <span class="card-tag">Stoicism</span>
+            <span class="card-tag">Data Science</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="#" class="card">
+        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Creative Coding" class="card-img">
+        <div class="card-content">
+          <h3>Creative Coding: Where Art Meets Algorithms</h3>
+          <p>Exploring the intersection of artistic expression and programming. How algorithms can generate beauty and how creativity can drive technological innovation.</p>
+          <div class="card-tags">
+            <span class="card-tag">Art</span>
+            <span class="card-tag">Programming</span>
+            <span class="card-tag">Creativity</span>
+          </div>
         </div>
       </a>
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <a href="#" class="project-card">
-        <img src="projectsource.jpg" alt="Project 1" />
-        <div class="project-info">
+    <div class="section-header">
+      <h2>My Projects</h2>
+      <p>Innovative solutions blending technology and design</p>
+    </div>
+    <div class="card-grid">
+      <a href="#" class="card">
+        <img src="https://images.unsplash.com/photo-1592517918256-4af4f6d82949?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Mental Health App" class="card-img">
+        <div class="card-content">
           <h3>Smart Mental Health App</h3>
-          <p>A GAD/PHQ self-assessing app with mood analytics and animations.</p>
+          <p>A comprehensive mental wellness platform featuring GAD/PHQ self-assessment, mood analytics, guided meditations, and personalized coping strategies with beautiful animations.</p>
+          <div class="card-tags">
+            <span class="card-tag">AI</span>
+            <span class="card-tag">Mobile App</span>
+            <span class="card-tag">Health Tech</span>
+          </div>
         </div>
       </a>
-      <a href="#" class="project-card">
-        <img src="utsav.jpg" alt="Project 2" />
-        <div class="project-info">
+      
+      <a href="#" class="card">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Resume Scanner" class="card-img">
+        <div class="card-content">
           <h3>AI-Powered Resume Scanner</h3>
-          <p>Scans resumes and ranks them using NLP/ML with a smooth UI.</p>
+          <p>An intelligent system that analyzes and ranks resumes using advanced NLP and machine learning algorithms, featuring an intuitive dashboard for HR professionals.</p>
+          <div class="card-tags">
+            <span class="card-tag">NLP</span>
+            <span class="card-tag">Machine Learning</span>
+            <span class="card-tag">HR Tech</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="#" class="card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Art Generator" class="card-img">
+        <div class="card-content">
+          <h3>Generative Art Studio</h3>
+          <p>A creative platform that uses machine learning to generate unique artworks based on user input, blending human creativity with algorithmic complexity.</p>
+          <div class="card-tags">
+            <span class="card-tag">Generative AI</span>
+            <span class="card-tag">Creative Tech</span>
+            <span class="card-tag">Web App</span>
+          </div>
         </div>
       </a>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:utsav@example.com" style="color: var(--highlight)">utsav@example.com</a></p>
+    <div class="section-header">
+      <h2>Get In Touch</h2>
+      <p>Let's collaborate on something amazing</p>
+    </div>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Have a project in mind or want to discuss potential collaborations? Feel free to reach out!</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <a href="mailto:utsav@example.com">utsav@example.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Location</h4>
+              <p>San Francisco, CA</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <a href="tel:+11234567890">+1 (123) 456-7890</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-medium-m"></i></a>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Utsav Pandey. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-logo">Utsav Pandey</div>
+      <p>Blending art, philosophy, and science into beautiful ideas and tech projects</p>
+      
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#resume">Resume</a>
+        <a href="#blog">Blog</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2025 Utsav Pandey. All rights reserved.
+      </div>
+    </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 
-  <script src="script.js"></script>
+
 </body>
 </html>

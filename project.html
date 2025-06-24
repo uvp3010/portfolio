@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Details | Utsav Pandey</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="projectDetail" class="project-detail-overlay hidden">
+    <div class="project-detail-card">
+      <button id="closeProject" class="close-btn"><i class="fas fa-times"></i></button>
+      <div class="project-detail-content">
+        <img id="detailImg" src="" alt="Project Image" class="detail-img">
+        <div class="detail-text">
+          <h2 id="detailTitle">Project Title</h2>
+          <p id="detailDesc">Project description will go here...</p>
+          <a id="detailLink" href="#" target="_blank" class="btn btn-primary">Visit Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const projectDetail = document.getElementById('projectDetail');
+    const closeProject = document.getElementById('closeProject');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailDesc = document.getElementById('detailDesc');
+    const detailLink = document.getElementById('detailLink');
+    const detailImg = document.getElementById('detailImg');
+
+    document.querySelectorAll('#projects .card').forEach(card => {
+      card.addEventListener('click', () => {
+        detailTitle.textContent = card.querySelector('h3').textContent;
+        detailDesc.textContent = card.querySelector('p').textContent;
+        detailImg.src = card.querySelector('img').src;
+        detailLink.href = card.href || '#';
+
+        projectDetail.classList.remove('hidden');
+        setTimeout(() => projectDetail.classList.add('visible'), 10);
+      });
+    });
+
+    closeProject.addEventListener('click', () => {
+      projectDetail.classList.remove('visible');
+      setTimeout(() => projectDetail.classList.add('hidden'), 300);
+    });
+  </script>
+
+  <style>
+    .project-detail-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(10, 10, 15, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      z-index: 10000;
+    }
+
+    .project-detail-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-detail-card {
+      background: var(--card);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      max-width: 900px;
+      width: 90%;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      transform: translateY(20px);
+      animation: slideUp 0.4s ease forwards;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .project-detail-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .detail-img {
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
+
+    .detail-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .detail-text p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .detail-text .btn {
+      margin-top: 1.5rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .project-detail-content {
+        flex-direction: row;
+      }
+
+      .detail-img {
+        width: 45%;
+      }
+
+      .detail-text {
+        width: 55%;
+      }
+    }
+  </style>
+</body>
+</html>

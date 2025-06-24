@@ -2,147 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Details | Utsav Pandey</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div id="projectDetail" class="project-detail-overlay hidden">
-    <div class="project-detail-card">
-      <button id="closeProject" class="close-btn"><i class="fas fa-times"></i></button>
-      <div class="project-detail-content">
-        <img id="detailImg" src="" alt="Project Image" class="detail-img">
-        <div class="detail-text">
-          <h2 id="detailTitle">Project Title</h2>
-          <p id="detailDesc">Project description will go here...</p>
-          <a id="detailLink" href="#" target="_blank" class="btn btn-primary">Visit Project</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const projectDetail = document.getElementById('projectDetail');
-    const closeProject = document.getElementById('closeProject');
-    const detailTitle = document.getElementById('detailTitle');
-    const detailDesc = document.getElementById('detailDesc');
-    const detailLink = document.getElementById('detailLink');
-    const detailImg = document.getElementById('detailImg');
-
-    document.querySelectorAll('#projects .card').forEach(card => {
-      card.addEventListener('click', () => {
-        detailTitle.textContent = card.querySelector('h3').textContent;
-        detailDesc.textContent = card.querySelector('p').textContent;
-        detailImg.src = card.querySelector('img').src;
-        detailLink.href = card.href || '#';
-
-        projectDetail.classList.remove('hidden');
-        setTimeout(() => projectDetail.classList.add('visible'), 10);
-      });
-    });
-
-    closeProject.addEventListener('click', () => {
-      projectDetail.classList.remove('visible');
-      setTimeout(() => projectDetail.classList.add('hidden'), 300);
-    });
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details</title>
   <style>
-    .project-detail-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(10, 10, 15, 0.9);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .project-card {
+      background-color: #1f2937;
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-size: 1rem;
+      margin: 15px 0;
+      color: #cbd5e1;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #3b82f6;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #2563eb;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: none;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease-in-out;
-      z-index: 10000;
+      z-index: 1000;
     }
 
-    .project-detail-overlay.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .project-detail-card {
-      background: var(--card);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      max-width: 900px;
+    .modal {
+      background-color: #1e293b;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
       width: 90%;
-      box-shadow: var(--card-shadow);
-      position: relative;
-      transform: translateY(20px);
-      animation: slideUp 0.4s ease forwards;
+      color: #e2e8f0;
+      text-align: left;
+      animation: fadeInUp 0.5s ease forwards;
     }
 
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .project-detail-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .detail-img {
-      width: 100%;
-      border-radius: var(--border-radius);
-    }
-
-    .detail-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .detail-text p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .detail-text .btn {
-      margin-top: 1.5rem;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @keyframes slideUp {
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
       to {
+        opacity: 1;
         transform: translateY(0);
       }
     }
 
-    @media (min-width: 768px) {
-      .project-detail-content {
-        flex-direction: row;
-      }
+    .modal h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
 
-      .detail-img {
-        width: 45%;
-      }
+    .modal p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
 
-      .detail-text {
-        width: 55%;
-      }
+    .close-btn {
+      background-color: #ef4444;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      float: right;
+    }
+
+    .close-btn:hover {
+      background-color: #dc2626;
     }
   </style>
+</head>
+<body>
+
+  <div class="project-card">
+    <h1>AI Project Explorer</h1>
+    <p class="desc">A modern web app using AI to explore datasets, generate insights, and visualize data in real-time.</p>
+    <div class="btn-container">
+      <button class="btn" id="viewMoreBtn">View More</button>
+      <a class="btn" href="https://your-live-project-link.com" target="_blank">Visit Project</a>
+      <a class="btn" href="docs/AI_Project_Explorer_Documentation.pdf" download>Download Docs</a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="close-btn" id="closeModal">&times; Close</button>
+      <h2>AI Project Explorer</h2>
+      <p><strong>Technologies:</strong> React, Tailwind CSS, TensorFlow.js, Flask API</p>
+      <p>
+        This project allows users to upload datasets, apply machine learning models, and visualize the outputs dynamically.
+        It's built for rapid prototyping of AI ideas and includes natural language query support using NLP.
+      </p>
+      <p>
+        The system integrates with Google Drive for secure file handling and includes robust error handling, session management,
+        and visualization using Chart.js and D3.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const modalOverlay = document.getElementById('modalOverlay');
+    const viewMoreBtn = document.getElementById('viewMoreBtn');
+    const closeModal = document.getElementById('closeModal');
+
+    viewMoreBtn.addEventListener('click', () => {
+      modalOverlay.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+    });
+
+    // Optional: Close modal when clicking outside
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+      }
+    });
+  </script>
+
 </body>
 </html>
